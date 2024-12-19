@@ -8,7 +8,7 @@ import Footer from "./components/footer/Footer.jsx";
 import AboutUs from './components/content/AboutUs.jsx';
 import "./main.css";
 
-// today
+// pull push
 function App()  {
   return (
     <BrowserRouter>
