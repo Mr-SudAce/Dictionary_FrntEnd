@@ -2,54 +2,34 @@ import foto from "../../assets/pic.jpg";
 // import axios from "axios";
 // import { useEffect, useState } from "react";
 
-
-
-
 const AboutUs = () => {
 
     // const [apiItem, setApiItem] = useState([]);
-
-    // const APIURL = "http://127.0.0.1:8000/word/"
-
+    // const APIURL = "http://127.0.0.1:8000/api/post/";
 
     // useEffect(() => {
     //     axios.get(APIURL)
     //         .then(res => {
+    //             console.log(res.data)
     //             setApiItem(res.data);
     //         })
     //         .catch(err => {
-    //             console.log("Error fetching api data", err);
-    //         })
-    // }, [APIURL])
-
-
+    //             console.log("Error fetching API data", err);
+    //         });
+    // }, [APIURL]);
 
     return (
         <>
-
-            {/* {apiItem.map((item, index) => (
-
-                <div key={index}>
-                    <p>{item.id}</p>
-                    <p>{item.words}</p>
-                    <p>{item.part_of_speech}</p>
-                    <p>{item.description}</p>
-
-                </div>
-            ))} */}
+            {/* About Us Section */}
             <section id="about" className="container-fluid bg-gray-100 py-12 flex flex-col md:flex-row items-center justify-around space-y-6 md:space-y-0">
-                
                 <div className="relative w-full md:w-2/4 flex items-center justify-center p-2">
-                    
                     <img
                         src={foto}
                         alt="About Us"
-                        className="max-w-full w-[80%] object-cover rounded-lg shadow-lg relative "
+                        className="max-w-full w-[80%] object-cover rounded-lg shadow-lg relative"
                     />
-                    <h2 className="absolute w-80 h-20 top-5 -right-0.5 flex justify-center items-center text-4xl md:text-6xl font-bold text-white rounded-lg  bg-opacity-50 bg-black"
-                        style={{
-                            textShadow: "2px 2px 2px var(--main_color)",
-                        }}>
+                    <h2 className="absolute w-80 h-20 top-5 -right-0.5 flex justify-center items-center text-4xl md:text-6xl font-bold text-white rounded-lg bg-opacity-50 bg-black"
+                        style={{ textShadow: "2px 2px 2px var(--main_color)" }}>
                         About Us
                     </h2>
                 </div>
