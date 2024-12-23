@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HeroPage base_url={base_url} />} />
           <Route path="/word/detail/:id" element={<WordsDetail dictionary_url={dictionary_url} />} />
-          {/* <Route path="/word" element={<Words />} /> */}
+          {/* <Route path="/word" element={<Words dictionary_url={dictionary_url} />} /> */}
           <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer base_url={base_url} />

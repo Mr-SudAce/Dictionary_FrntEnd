@@ -2,48 +2,6 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-
-
-// const footer = [
-//   {
-//     title: 'Meaningby.com',
-//     links: [
-//       { name: 'New Words', link: '/word' },
-//       { name: 'Help', link: '/' },
-//       { name: 'In Print Word of the Year 2021', link: '#' },
-//       { name: 'Word of the Year 2022', link: '#' },
-//       { name: 'Word of the Year 2023', link: '#' },
-//       { name: 'Develop Dictionary', link: '#' },
-//     ],
-//   },
-//   {
-//     title: 'Contact Us',
-//     links: [
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//     ],
-//   }, {
-//     title: 'Navigation',
-//     links: [
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//     ],
-//   }, {
-//     title: 'Follow us',
-//     links: [
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//       { name: '', link: '#' },
-//     ],
-//   }]
-
-
-
-
 const Footer = ({base_url}) => {
 
   const path = "/api/footer/"

@@ -1,7 +1,8 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-const Words = () => {
+const Words = ({dictionary_url}) => {
     const [input, setInput] = useState("");
     const [words, setWords] = useState([]);
     const [error, setError] = useState(null);
@@ -21,7 +22,7 @@ const Words = () => {
             setError(null);
 
             try {
-                const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${input}`;
+                const url = `${dictionary_url}${input}`;
                 const response = await axios.get(url);
                 const fetchWords = response.data.map(letter => letter.word) || [];
                 setWords(fetchWords);
@@ -62,6 +63,10 @@ const Words = () => {
             </ul>
         </div>
     );
+};
+
+Words.propTypes = {
+    dictionary_url: PropTypes.string.isRequired,
 };
 
 export default Words;
