@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import foto from "../../assets/book1.png";
 import Features from "./Features.jsx";
 import WordOfTheDay from "./WordOfTheDay.jsx";
+import PropTypes from 'prop-types';
 
-const HeroPage = () => {
+
+const HeroPage = ({ base_url }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -124,10 +126,13 @@ const HeroPage = () => {
 
             <div>
                 <WordOfTheDay />
-                <Features />
+                <Features base_url={base_url} />
             </div>
         </>
     );
 };
 
+HeroPage.propTypes = {
+    base_url: PropTypes.string.isRequired,
+};
 export default HeroPage;

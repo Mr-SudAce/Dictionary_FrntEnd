@@ -12,7 +12,14 @@ import "./main.css";
 
 
 // pulled
-function App()  {
+
+function App() {
+
+  const base_url = "http://127.0.0.1:8000"
+
+  const dictionary_url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+
+
   return (
     <BrowserRouter>
       <div className="container-fluid p-0" style={{
@@ -20,12 +27,12 @@ function App()  {
       }}>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HeroPage />} />
-          <Route path="/word/detail/:id" element={<WordsDetail />} />
+          <Route path="/" element={<HeroPage base_url={base_url} />} />
+          <Route path="/word/detail/:id" element={<WordsDetail dictionary_url={dictionary_url} />} />
           {/* <Route path="/word" element={<Words />} /> */}
           <Route path="/about" element={<AboutUs />} />
         </Routes>
-        <Footer />
+        <Footer base_url={base_url} />
       </div>
     </BrowserRouter >
   );

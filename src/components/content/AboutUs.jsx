@@ -1,22 +1,6 @@
 import foto from "../../assets/pic.jpg";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
 
 const AboutUs = () => {
-
-    // const [apiItem, setApiItem] = useState([]);
-    // const APIURL = "http://127.0.0.1:8000/api/post/";
-
-    // useEffect(() => {
-    //     axios.get(APIURL)
-    //         .then(res => {
-    //             console.log(res.data)
-    //             setApiItem(res.data);
-    //         })
-    //         .catch(err => {
-    //             console.log("Error fetching API data", err);
-    //         });
-    // }, [APIURL]);
 
     return (
         <>

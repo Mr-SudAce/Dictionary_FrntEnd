@@ -3,15 +3,14 @@ import React, { useEffect } from "react";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { Link, useParams } from "react-router-dom";
 import { TbArrowBackUp } from "react-icons/tb";
+import PropTypes from "prop-types"
 import "../../main.css"
 
-const WordsDetail = () => {
+const WordsDetail = ({dictionary_url}) => {
     const { id } = useParams();
     const [wordDetails, setWordDetails] = React.useState(null);
 
-    const baseURL = "https://api.dictionaryapi.dev/";
-    const path = "api/v2/entries/en/";
-    const API_URL = `${baseURL}${path}${id}`;
+    const API_URL = `${dictionary_url}${id}`;
 
     useEffect(() => {
         axios
@@ -166,5 +165,11 @@ const WordsDetail = () => {
         </>
     );
 };
+
+WordsDetail.propTypes = {
+    dictionary_url: PropTypes.string.isRequired,
+};
+
+
 
 export default WordsDetail;

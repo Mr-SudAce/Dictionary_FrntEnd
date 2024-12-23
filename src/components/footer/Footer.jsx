@@ -1,47 +1,71 @@
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
 
 
-const footer = [
-  {
-    title: 'Meaningby.com',
-    links: [
-      { name: 'New Words', link: '/word' },
-      { name: 'Help', link: '/' },
-      { name: 'In Print Word of the Year 2021', link: '#' },
-      { name: 'Word of the Year 2022', link: '#' },
-      { name: 'Word of the Year 2023', link: '#' },
-      { name: 'Develop Dictionary', link: '#' },
-    ],
-  },
-  {
-    title: 'Contact Us',
-    links: [
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-    ],
-  }, {
-    title: 'Navigation',
-    links: [
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-    ],
-  }, {
-    title: 'Follow us',
-    links: [
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-      { name: '', link: '#' },
-    ],
-  }]
+// const footer = [
+//   {
+//     title: 'Meaningby.com',
+//     links: [
+//       { name: 'New Words', link: '/word' },
+//       { name: 'Help', link: '/' },
+//       { name: 'In Print Word of the Year 2021', link: '#' },
+//       { name: 'Word of the Year 2022', link: '#' },
+//       { name: 'Word of the Year 2023', link: '#' },
+//       { name: 'Develop Dictionary', link: '#' },
+//     ],
+//   },
+//   {
+//     title: 'Contact Us',
+//     links: [
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//     ],
+//   }, {
+//     title: 'Navigation',
+//     links: [
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//     ],
+//   }, {
+//     title: 'Follow us',
+//     links: [
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//       { name: '', link: '#' },
+//     ],
+//   }]
 
 
 
-const Footer = () => {
+
+const Footer = ({base_url}) => {
+
+  const path = "/api/footer/"
+  const API_URL = `${base_url}${path}`;
+
+  const [footer, setFooter] = useState([])
+
+
+  useEffect(()=>{
+    axios
+    .get(API_URL)
+    .then((res)=>{
+      setFooter(res.data)
+      console.log(res.data)
+    })
+    .catch((err)=>{
+      console.log("Error fetching Footer API Data", err);
+    })
+  }, [API_URL])
+
+
+
 
   const current = new Date();
   const year = `${current.getFullYear()}`;
@@ -60,17 +84,14 @@ const Footer = () => {
             <div key={index} className='lst'>
               <h4 className="font-semibold text-xl m-0 uppercase items-center flex justify-center py-3" style={{
                 color: 'var(--text_color)',
-              }}> {footerItem.title} </h4> <hr className='border-[white] m-0 p-0' />
-              <ul className="lstul space-y-5">
-                {footerItem.links.map((link, linkIndex) => (
+              }}> {footerItem.heading} </h4> <hr className='border-[white] m-0 p-0' />
+              
+              <p className='m-0'style={{
+                color: 'var(--text_color)',
+              }} dangerouslySetInnerHTML={{__html:footerItem.description}}>
+                
+                </p>
 
-                  <li key={linkIndex}>
-                    <Link to={link.link} className="text-[15px] text-decoration-none font-bold" style={{
-                      color: 'var(--text_color)',
-                    }}>{link.name}</Link>
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
 
@@ -88,6 +109,10 @@ const Footer = () => {
       </div>
     </>
   );
+};
+
+Footer.propTypes = {
+    base_url: PropTypes.string.isRequired,
 };
 
 export default Footer;
