@@ -50,9 +50,9 @@ const Features = ({ base_url }) => {
               >
                 <div className="mb-4 ">
                   <img
-                    src={feature.image ? `${base_url}${feature.image}` : `${base_url}/media/images/default.jpg`}
+                    src={feature.image ? `${base_url}${feature.image}` : `${base_url}/static/default.png`}
                     alt={feature.title || "Feature Image"}
-                    className="mx-auto sm:mx-0 w-[100%] h-60 object-contain"
+                    className="mx-auto sm:mx-0 w-[100%] h-60 object-cover"
                   />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 border-t border-black">

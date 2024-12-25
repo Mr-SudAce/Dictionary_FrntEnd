@@ -17,7 +17,7 @@ function App() {
 
   const base_url = "http://127.0.0.1:8000"
 
-  const dictionary_url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+  const dictionary_url = "https://api.dictionaryapi.dev/api/v2/entries/en"
 
 
   return (
@@ -27,7 +27,7 @@ function App() {
       }}>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HeroPage base_url={base_url} />} />
+          <Route path="/" element={<HeroPage base_url={base_url} dictionary_url={dictionary_url} />} />
           <Route path="/word/detail/:id" element={<WordsDetail dictionary_url={dictionary_url} />} />
           {/* <Route path="/word" element={<Words dictionary_url={dictionary_url} />} /> */}
           <Route path="/about" element={<AboutUs />} />

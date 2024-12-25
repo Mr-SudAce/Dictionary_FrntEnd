@@ -7,7 +7,7 @@ import WordOfTheDay from "./WordOfTheDay.jsx";
 import PropTypes from 'prop-types';
 
 
-const HeroPage = ({ base_url }) => {
+const HeroPage = ({ base_url, dictionary_url }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ const HeroPage = ({ base_url }) => {
             }
             setLoading(true);
             try {
-                const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`);
+                const response = await axios.get(`${dictionary_url}/${searchTerm}`);
                 setResults(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -36,7 +36,7 @@ const HeroPage = ({ base_url }) => {
         } else {
             setResults([]); // Reset results if query is empty
         }
-    }, [query]);
+    }, [dictionary_url, query]);
 
 
     return (
@@ -134,5 +134,6 @@ const HeroPage = ({ base_url }) => {
 
 HeroPage.propTypes = {
     base_url: PropTypes.string.isRequired,
+    dictionary_url: PropTypes.string.isRequired,
 };
 export default HeroPage;

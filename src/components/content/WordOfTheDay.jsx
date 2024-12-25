@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
-import "../../main.css";
 import ads from "../../assets/gif.webp";
+import "../../main.css";
 // import loader from "../../assets/loader.gif";
 import { Link } from "react-router-dom";
 
@@ -186,7 +186,6 @@ const WordOfTheDay = () => {
           <div className="flex justify-between items-center mt-4">
             <Link
               to={`/word/detail/${wordOfTheDay.word}`}
-              target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:underline flex items-center gap-1"
             >
@@ -233,7 +232,7 @@ const WordOfTheDay = () => {
               {words.slice(0, 8).map((ow, i) => (
                 <Link
                   key={i}
-                  to={`/words/${ow}`}
+                  to={`/word/detail/${ow}`}
                   className="block text-lg font-bold text-gray-700 hover:text-black "
                 >
                   {ow}
@@ -246,7 +245,7 @@ const WordOfTheDay = () => {
               {words.slice(70, 78).map((ow, i) => (
                 <Link
                   key={i}
-                  to={`/words/${ow}`}
+                  to={`/word/detail/${ow}`}
                   className="block text-lg font-bold text-gray-700 hover:text-black"
                 >
                   {ow}

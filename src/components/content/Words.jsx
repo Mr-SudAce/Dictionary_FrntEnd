@@ -35,7 +35,7 @@ const Words = ({dictionary_url}) => {
             }
         }
         fetchWords();
-    }, [input]);
+    }, [dictionary_url, input]);
 
     // Filter words based on input
     const filteredWords = words.filter((word) =>
