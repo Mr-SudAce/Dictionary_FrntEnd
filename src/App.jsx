@@ -25,7 +25,7 @@ function App() {
       <div className="container-fluid p-0" style={{
         backgroundColor: 'var(--main_bg)'
       }}>
-        <Navbar />
+        <Navbar base_url={base_url} />
         <Routes>
           <Route path="/" element={<HeroPage base_url={base_url} dictionary_url={dictionary_url} />} />
           <Route path="/word/detail/:id" element={<WordsDetail dictionary_url={dictionary_url} />} />

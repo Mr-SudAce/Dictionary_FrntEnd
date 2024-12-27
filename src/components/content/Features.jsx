@@ -8,7 +8,7 @@ const Features = ({ base_url }) => {
   const [features, setFeature] = useState([]);
 
 
-  const path = "/api/post/";
+  const path = "/api/all/post/";
   const API_url = `${base_url}${path}`;
 
 

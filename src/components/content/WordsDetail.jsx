@@ -6,11 +6,11 @@ import { TbArrowBackUp } from "react-icons/tb";
 import PropTypes from "prop-types"
 import "../../main.css"
 
-const WordsDetail = ({dictionary_url}) => {
+const WordsDetail = ({ dictionary_url }) => {
     const { id } = useParams();
     const [wordDetails, setWordDetails] = React.useState(null);
 
-    const API_URL = `${dictionary_url}${id}`;
+    const API_URL = `${dictionary_url}/${id}`;
 
     useEffect(() => {
         axios
@@ -21,6 +21,7 @@ const WordsDetail = ({dictionary_url}) => {
             .catch((err) => console.error("Error fetching word details:", err));
     }, [API_URL]);
 
+    console.log("Api", API_URL)
     const handlePlayAudio = () => {
         const audioSrc = wordDetails?.phonetics?.[0]?.audio;
         if (audioSrc) {
@@ -33,11 +34,11 @@ const WordsDetail = ({dictionary_url}) => {
 
     return (
         <>
+            <Link to={"/"} className="absolute left-[19.8rem] top-[6.5rem] bg-white rounded-full " >
+                <TbArrowBackUp className="text-4xl text-gray-950 hover:bg-black hover:text-white hover:rounded-lg" />
+            </Link>
             {wordDetails ? (
                 <div className="max-w-[1000px] mx-auto p-6 bg-white shadow-lg rounded-lg m-4">
-                    <Link to={"/"}>
-                        <TbArrowBackUp className="text-4xl text-gray-950 my-2" />
-                    </Link>
                     <div className="flex flex-wrap justify-start gap-2 items-center border-b pb-6 mb-6 rounded-lg p-2" style={{
                         backgroundColor: "var(--main_color)"
                     }}>

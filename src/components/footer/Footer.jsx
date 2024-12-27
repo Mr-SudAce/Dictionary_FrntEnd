@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const Footer = ({base_url}) => {
 
-  const path = "/api/footer/"
+  const path = "/api/all/footer/"
   const API_URL = `${base_url}${path}`;
 
   const [footer, setFooter] = useState([])

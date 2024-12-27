@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-// import logo from "./src/assets/meaningby.png";
-import logo from "../../assets/logo1.png";
-// import { TiSortAlphabetically } from "react-icons/ti";
-// import { TiHome } from "react-icons/ti";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
 const menu = [
     { label: "Home", path: "/" },
@@ -12,8 +10,28 @@ const menu = [
     // { label: "Contact", path: "/contact" },
 ];
 
-const Navbar = () => {
+
+const Navbar = ({ base_url }) => {
+
+    const path = "/api/all/header/"
+    const API_URL = `${base_url}${path}`
+
+    
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [header, setHeader] = useState([])
+
+    useEffect(() => {
+        axios
+            .get(API_URL)
+            .then((res) => {
+                setHeader(res.data)
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log("Error Fetching Header API Data", err);
+            })
+    }, [API_URL])
+
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -22,23 +40,20 @@ const Navbar = () => {
     return (
         <>
             <div className="shadow-md border-b sticky top-0 z-50" style={{
-                backgroundColor: 'var(--main_bg)'               
+                backgroundColor: 'var(--main_bg)'
             }}>
-                {/* Container */}
                 <div className=" mx-auto flex items-center justify-between p-3">
-                    {/* Logo */}
                     <Link to={"/"} className="text-decoration-none">
-                        <div className="flex items-center gap-3">
-                            <img
-                                // src="https://picsum.photos/50/50"
-                                src={logo}
-                                alt="Logo"
-                                className="w-auto h-[40px] m-0"
-                            />
-                            {/* <span className="text-2xl font-bold" style={{
-                            color: 'var(--main_color)'
-                        }}>MeaningBy</span> */}
-                        </div>
+                        {header.map((headeritem, index) => (
+
+                            <div key={index} className="flex items-center gap-3">
+                                <img
+                                src={headeritem.logo ? `${base_url}${headeritem.logo}` : `${base_url}/static/default.png` }
+                                    alt="Logo"
+                                    className="w-auto h-[40px] m-0"
+                                />
+                            </div>
+                        ))}
                     </Link>
 
                     {/* Hamburger Menu for Mobile */}
@@ -89,8 +104,12 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
-            </>
+        </>
     );
+};
+
+Navbar.propTypes = {
+    base_url: PropTypes.string.isRequired,
 };
 
 export default Navbar;
