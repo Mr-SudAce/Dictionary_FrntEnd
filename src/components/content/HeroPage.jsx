@@ -1,16 +1,30 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 import foto from "../../assets/book1.png";
 import Features from "./Features.jsx";
 import WordOfTheDay from "./WordOfTheDay.jsx";
 import PropTypes from 'prop-types';
+import Category from "./category.jsx";
+
+
 
 
 const HeroPage = ({ base_url, dictionary_url }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
+
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch(query);
+        }
+    };
+    const handleSearch = () => {
+        console.log('Search query:', query);
+    };
 
     useEffect(() => {
         const fetchResults = async (searchTerm) => {
@@ -36,7 +50,9 @@ const HeroPage = ({ base_url, dictionary_url }) => {
         } else {
             setResults([]); // Reset results if query is empty
         }
+
     }, [dictionary_url, query]);
+
 
 
     return (
@@ -77,6 +93,7 @@ const HeroPage = ({ base_url, dictionary_url }) => {
                             <input
                                 type="text"
                                 value={query}
+                                onKeyPress={handleKeyDown}
                                 onChange={(e) => setQuery(e.target.value)}
                                 placeholder="Type a word to search..."
                                 className="focus:outline-none w-full h-[50px] px-2 text-lg"
@@ -84,6 +101,7 @@ const HeroPage = ({ base_url, dictionary_url }) => {
                                     backgroundColor: "var(--main_bg)",
                                 }}
                             />
+                            <button type="submit" onClick={handleSearch} style={{ backgroundColor: "var(--text_color)", }} className="flex items-center justify-center text-3xl w-[50px] h-[50px]"><FiSearch className="" /></button>
                         </span>
                         {loading && (
                             <p
@@ -127,6 +145,9 @@ const HeroPage = ({ base_url, dictionary_url }) => {
             <div>
                 <WordOfTheDay />
                 <Features base_url={base_url} />
+            </div>
+            <div>
+                <Category base_url={base_url} />
             </div>
         </>
     );
