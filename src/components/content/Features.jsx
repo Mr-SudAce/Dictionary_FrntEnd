@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import PropTypes from 'prop-types';
+// import Slider from "react-slick";
 
 
 const Features = ({ base_url }) => {
   const [expandedIndexes, setExpandedIndexes] = useState([]);
   const [features, setFeature] = useState([]);
+
 
 
   const path = "/api/all/post/";
@@ -33,7 +35,17 @@ const Features = ({ base_url }) => {
     );
   };
 
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 3,
+  // }
+
+
   return (
+
     <section className="py-12 border-t" style={{
       backgroundColor: "var(--main_bg)",
     }}>
@@ -41,18 +53,21 @@ const Features = ({ base_url }) => {
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
           Our Features
         </h2>
+
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left ">
           {features.length > 0 && (
             features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="p-6 bg-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-[100%] "
               >
-                <div className="mb-4 ">
+
+                <div className="mb-4">
                   <img
                     src={feature.image ? `${base_url}${feature.image}` : `${base_url}/static/default.png`}
                     alt={feature.title || "Feature Image"}
-                    className="mx-auto sm:mx-0 w-[100%] h-60 object-cover"
+                    className="mx-auto sm:mx-0 w-[100%] h-60 object-contain lg:object-cover"
                   />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 border-t border-black">
@@ -80,7 +95,7 @@ const Features = ({ base_url }) => {
           )}
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

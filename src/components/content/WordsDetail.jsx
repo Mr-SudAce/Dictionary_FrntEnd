@@ -34,9 +34,9 @@ const WordsDetail = ({ dictionary_url }) => {
 
     return (
         <>
-            <Link to={"/"} className="absolute left-[19.8rem] top-[6.5rem] bg-white rounded-full " >
+            {/* <Link to={"/"} className="absolute lg:left-[19.8rem] lg:top-[6.5rem] top-[6.1rem] left-[0.1rem] md:top-[6.9rem] md:left-[0.5rem] bg-white rounded-full " >
                 <TbArrowBackUp className="text-4xl text-gray-950 hover:bg-black hover:text-white hover:rounded-lg" />
-            </Link>
+            </Link> */}
             {wordDetails ? (
                 <div className="max-w-[1000px] mx-auto p-6 bg-white shadow-lg rounded-lg m-4">
                     <div className="flex flex-wrap justify-start gap-2 items-center border-b pb-6 mb-6 rounded-lg p-2" style={{

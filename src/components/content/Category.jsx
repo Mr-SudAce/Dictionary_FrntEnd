@@ -47,7 +47,7 @@ const Category = ({ base_url }) => {
                 {Object.entries(groupedPosts).map(([categoryId, categoryData]) => (
                     <div key={categoryId} className="mb-8 px-4 lg:px-8">
                         <p className="text-start text-2xl sm:text-3xl lg:text-4xl font-semibold my-4">
-                            {categoryData.title} - {categoryId}
+                            {categoryData.title}
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {categoryData.posts.map((post) => (

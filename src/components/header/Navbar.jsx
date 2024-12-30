@@ -85,7 +85,7 @@ const Navbar = ({ base_url }) => {
 
                     {/* Navigation Links */}
                     <ul
-                        className={`md:flex items-center space-x-6 m-0 absolute md:relative top-16 md:top-auto left-0 w-full md:w-auto md:bg-transparent shadow-md md:shadow-none md:space-x-6  ${isMenuOpen
+                        className={`md:flex items-center space-x-6 m-0 absolute md:relative top-16 md:top-auto left-0 w-full md:w-auto md:bg-transparent  bg-white shadow-md md:shadow-none md:space-x-6  ${isMenuOpen
                             ? "block"
                             : "hidden"
                             }`}
