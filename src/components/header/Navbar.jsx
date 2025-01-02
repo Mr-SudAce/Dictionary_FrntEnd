@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const menu = [
     { label: "Home", path: "/" },
@@ -12,25 +12,44 @@ const menu = [
 
 
 const Navbar = ({ base_url }) => {
-
-    const path = "/api/all/header/"
-    const API_URL = `${base_url}${path}`
-
-    
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [header, setHeader] = useState([])
+    // const [menu, setMenu] = useState([])
 
+    const path = "/api/all/header/"
+    // const path2 = "/api/all/page/"
+    const API_URL = `${base_url}${path}`
+    // const API_URL2 = `${base_url}${path2}`
+
+    // logo/ header
     useEffect(() => {
-        axios
-            .get(API_URL)
-            .then((res) => {
-                setHeader(res.data)
-                console.log(res.data)
-            })
-            .catch((err) => {
+        const fetchData = async () => {
+            try {
+                const res1 = await axios.get(API_URL);
+                setHeader(res1.data);
+                console.log(res1.data);
+            } catch (err) {
                 console.log("Error Fetching Header API Data", err);
-            })
-    }, [API_URL])
+            }
+        };
+        fetchData();
+    }, [API_URL]);
+
+
+
+    // Menu
+    // useEffect(() => {
+    //     const fetchData1 = async () => {
+    //         try {
+    //             const res2 = await axios.get(API_URL2);
+    //             setMenu(res2.data);
+    //             console.log(res2.data);
+    //         } catch (err) {
+    //             console.log("Error Fetching Menu API Data", err);
+    //         }
+    //     };
+    //     fetchData1();
+    // }, [API_URL2]);
 
 
     const toggleMenu = () => {
@@ -43,12 +62,13 @@ const Navbar = ({ base_url }) => {
                 backgroundColor: 'var(--main_bg)'
             }}>
                 <div className=" mx-auto flex items-center justify-between p-3">
+                    {/* header */}
                     <Link to={"/"} className="text-decoration-none">
                         {header.map((headeritem, index) => (
 
                             <div key={index} className="flex items-center gap-3">
                                 <img
-                                src={headeritem.logo ? `${base_url}${headeritem.logo}` : `${base_url}/static/default.png` }
+                                    src={headeritem.logo ? `${base_url}${headeritem.logo}` : `${base_url}/static/default.png`}
                                     alt="Logo"
                                     className="w-auto h-[40px] m-0"
                                 />
@@ -85,19 +105,20 @@ const Navbar = ({ base_url }) => {
 
                     {/* Navigation Links */}
                     <ul
-                    style={{
-                        color: 'var(--main_text)'
-                    }}
+                        style={{
+                            color: 'var(--main_text)'
+                        }}
                         className={`md:flex items-center space-x-6 m-0 absolute md:relative top-16 md:top-auto left-0 w-full md:w-auto md:bg-transparent shadow-md md:shadow-none md:space-x-6  ${isMenuOpen
                             ? "block"
                             : "hidden"
                             }`}
                     >
+                        {/* menu */}
                         {menu.map((m, index) => (
                             <li key={index} className="border-b md:border-none">
                                 <Link
-                                    to={m.path}
-                                    className="block text-decoration-none text-xl font-bold text-black hover:text-red-600 hover:border-b-2 opacity-100 p-2 uppercase "
+                                    to={m.path.toLowerCase().replace(/\s/g, "-")}
+                                    className="block text-decoration-none text-xl font-bold text-gray-950 hover:text-gray-900 border-b-2 border-gray-950 opacity-100 p-2 uppercase "
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {m.label}

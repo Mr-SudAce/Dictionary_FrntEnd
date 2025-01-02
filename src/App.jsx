@@ -7,18 +7,14 @@ import Navbar from "./components/header/Navbar.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import AboutUs from './components/content/AboutUs.jsx';
 import "./main.css";
-
-// pull push
-
-
-// pulled
+// import axios from 'axios';
+// import { useEffect, useState } from 'react';
 
 function App() {
 
   const base_url = "http://127.0.0.1:8000"
 
   const dictionary_url = "https://api.dictionaryapi.dev/api/v2/entries/en"
-
 
   return (
     <BrowserRouter>
@@ -29,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HeroPage base_url={base_url} dictionary_url={dictionary_url} />} />
           <Route path="/word/detail/:id" element={<WordsDetail dictionary_url={dictionary_url} />} />
-          <Route path="/post/:id/" element={<Cate_Details base_url={base_url}/>} />
+          <Route path="/post/:id/" element={<Cate_Details base_url={base_url} />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer base_url={base_url} />
