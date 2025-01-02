@@ -28,27 +28,28 @@ const Cate_Detail = ({ base_url }) => {
     }, [API_URL]);
     return (
         <>
-            <div className="grid justify-center max-w-[85%] mx-auto">
-                <h1 className="text-center text-2xl md:text-3xl font-bold mb-4">{Cate_Detail.title}</h1>
-                <div className="bg-gray-300 p-4 shadow-md rounded-lg w-[70rem] max-h-[44rem] mb-4 overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
-                    <div className="flex items-center justify-center">
-                        <img
-                            src={`${base_url}${Cate_Detail?.image}`}
-                            alt={Cate_Detail?.title}
-                            className="object-contain w-full max-h-[20rem] md:max-h-[30rem] rounded-lg"
-                        />
+            <div className="container mx-auto p-6">
+                <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-contain bg-no-repeat bg-center h-64 p-4" style={{ backgroundImage: `url(${base_url}${Cate_Detail?.image})` }}>
+                        <div className="flex justify-end">
+                            {/* <span className="bg-gray-800 text-white text-xs font-bold rounded-full p-2 uppercase tracking-wide">
+                                {Cate_Detail?.category}
+                            </span> */}
+                        </div>
                     </div>
                     <div className="p-4">
-                        <p
-                            className="text-base md:text-lg font-medium text-justify overflow-x-hidden overflow-y-auto "
-                            dangerouslySetInnerHTML={{ __html: Cate_Detail.full_desc }}
-                        ></p>
+                        <h1 className="text-3xl font-bold text-gray-900">{Cate_Detail.title}</h1>
+                        <div className="flex items-center mt-2">
+                            {/* <svg className="h-6 w-6 text-gray-600 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg> */}
+                            <span className="ml-2 text-gray-600 text-sm">{Cate_Detail?.author}</span>
+                        </div>
+                        <div className="mt-4 text-gray-700 text-base" dangerouslySetInnerHTML={{ __html: Cate_Detail.full_desc }}></div>
                     </div>
                 </div>
             </div>
-
         </>
-
     )
 }
 
