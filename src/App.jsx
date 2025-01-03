@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HeroPage from "./components/content/HeroPage.jsx";
 import WordsDetail from "./components/content/WordsDetail.jsx";
 import Cate_Details from "./components/content/Cate_Details.jsx";
+import Blog_Details from "./components/content/Blog_Details.jsx";
+import AllBlogs from "./components/content/AllBlogs.jsx";
 import Navbar from "./components/header/Navbar.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import AboutUs from './components/content/AboutUs.jsx';
@@ -26,6 +28,8 @@ function App() {
           <Route path="/" element={<HeroPage base_url={base_url} dictionary_url={dictionary_url} />} />
           <Route path="/word/detail/:id" element={<WordsDetail dictionary_url={dictionary_url} />} />
           <Route path="/post/:id/" element={<Cate_Details base_url={base_url} />} />
+          <Route path="/blog/:id/" element={<Blog_Details base_url={base_url} />} />
+          <Route path="/allblog" element={<AllBlogs base_url={base_url} />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer base_url={base_url} />

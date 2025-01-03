@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { Link, useParams } from "react-router-dom";
-import { TbArrowBackUp } from "react-icons/tb";
+// import { TbArrowBackUp } from "react-icons/tb";
 import PropTypes from "prop-types"
 import "../../main.css"
 
@@ -148,7 +148,6 @@ const WordsDetail = ({ dictionary_url }) => {
                     {/* License Information */}
                     <div className="mt-6 border-t pt-4">
                         <span className="flex gap-2">
-
                             <p className="font-semibold">License:</p>
                             <Link
                                 to={wordDetails.phonetics?.[0]?.license?.url || "#"}
