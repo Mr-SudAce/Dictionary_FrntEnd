@@ -8,6 +8,10 @@ const Blog = ({ base_url }) => {
     const path = "/api/all/blog/";
     const API_URL = `${base_url}${path}`
 
+
+    // const limitword = 
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -22,6 +26,7 @@ const Blog = ({ base_url }) => {
         fetchData();
     }, [API_URL]);
 
+
     return (
         <>
             <div className="position-relative lg:w-3/4 md:w-3/4 px-2">
@@ -30,19 +35,27 @@ const Blog = ({ base_url }) => {
                     {blog.slice(0, 4).map((blog, index) => (
                         <section key={index} className="bg-gray-300 text-gray-600 body-font rounded-lg">
                             <div className="flex flex-col p-2 h-full">
-                                    <h1 className="text-2xl text-dark">{blog.blog_title}</h1>
+                                <h1 className="text-2xl text-dark">{blog.blog_title}</h1>
                                 <div className="rounded-lg overflow-hidden w-full">
                                     <img alt="content" className="object-cover object-center h-48 w-full p-3" src={`${base_url}${blog.blog_image}`} />
                                 </div>
                                 <div className="text-center">
-                                    <p className="leading-relaxed text-lg m-0 line-clamp-2" dangerouslySetInnerHTML={{ __html: blog.blog_description }}></p>
+                                    <p className="leading-relaxed text-lg m-0">
+
+                                        {blog.blog_description.length > 50 ? (
+                                            <p dangerouslySetInnerHTML={{ __html: `${blog.blog_description.substring(0, 50)}...` }}></p>
+                                        ) : (
+                                            <p dangerouslySetInnerHTML={{ __html: blog.blog_description }}></p>
+                                        )}
+                                        
+                                    </p>
                                     <p className="text-sm items-center justify-end flex text-gray-600 m-0">By: <span>{blog.blog_author}</span> </p>
                                 </div>
                                 <Link to={`/blog/${blog.id}`} className="text-decoration-none text-dark items-center justify-end flex text-md mt-2"><IoMdArrowRoundForward /></Link>
                             </div>
                         </section>
                     ))}
-                <Link to={`/allblog/`} className="position-absolute right-0 bottom-0 md:right-0 text-decoration-none font-bold text-gray-600 p-2 hover:text-gray-800">See More</Link>
+                    <Link to={`/allblog/`} className="position-absolute right-0 bottom-0 md:right-0 text-decoration-none font-bold text-gray-600 p-2 hover:text-gray-800">See More</Link>
                 </div>
             </div>
         </>
