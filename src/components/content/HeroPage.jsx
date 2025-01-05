@@ -14,7 +14,7 @@ const HeroPage = ({ base_url, dictionary_url }) => {
     return (
         <>
             <div
-                className="relative lg:h-[55rem] md:h-[26rem] h-[25rem] shadow"
+                className="relative lg:h-[52rem] md:h-[26rem] h-[25rem] shadow"
                 style={{
                     backgroundImage: `url(${foto})`,
                     backgroundSize: "cover",
@@ -45,9 +45,11 @@ const HeroPage = ({ base_url, dictionary_url }) => {
                 <WordOfTheDay />
                 {/* <Features base_url={base_url} /> */}
             </div>
+            <Ads />
             <div>
                 <Category base_url={base_url} dictionary_url={dictionary_url} />
             </div>
+            <Ads />
         </>
     );
 };
