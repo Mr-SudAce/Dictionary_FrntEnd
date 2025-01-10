@@ -32,7 +32,7 @@ const Footer = ({base_url}) => {
 
   return (
     <>
-      <footer className="w-full border-t font-sans tracking-wide bg-var(--main_color) p-2"
+      <footer className="w-full border-t font-sans tracking-wide bg-var(--main_color) p-0.5"
         style={{
           backgroundColor: 'var(--main_color)',
         }}
