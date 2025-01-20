@@ -40,21 +40,20 @@ const AllBlogs = ({ base_url }) => {
                             <div className="-my-8 divide-y-2 divide-gray-100">
                                 <div className="py-8 flex flex-wrap md:flex-nowrap flex-col">
                                     <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                                        <span className="font-semibold title-font text-gray-700">CATEGORY</span>
+                                        <span className="font-semibold title-font text-gray-700">{allblog?.blog_Cat.cat_title}</span>
                                         <span className="mt-1 text-gray-500 text-sm">{today} </span>
                                     </div>
                                     <div className="md:flex-grow">
                                         <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{allblog.blog_title}</h2>
-                                        <p className="leading-relaxed" dangerouslySetInnerHTML={{ __html: allblog.blog_description }}></p>
-                                        <Link to={`/blog/${allblog.id}`} className="inline-flex items-center">Learn More..
-                                        </Link>
+                                        <p className="leading-relaxed" dangerouslySetInnerHTML={{__html: `${allblog.blog_description.substring(0, 200).split(" ").slice(0, -1).join(" ")}...`,}}></p>
+                                        <Link to={`/blog/${allblog.id}`} className="inline-flex items-center">Learn More..</Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 ))}
-            </div>
+            </div >
         </>
     );
 }
