@@ -106,7 +106,7 @@ const WordOfTheDay = () => {
 
   if (loading) return <div className="text-center mt-10 text-gray-600">Loading...</div>;
 
-  if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
+  if (error) return <div className="text-center mt-10 text-red-500  w-full md:w-1/2 lg:w-1/4 ">{error}</div>;
 
 
 

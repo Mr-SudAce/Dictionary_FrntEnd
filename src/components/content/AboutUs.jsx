@@ -12,7 +12,7 @@ const AboutUs = () => {
                         alt="About Us"
                         className="max-w-full w-[80%] object-cover rounded-lg shadow-lg relative"
                     />
-                    <h2 className="absolute w-80 h-20 md:w-[14rem] md:20 lg:top-5 lg:left-[70%] md:top-5 md:left-[59%] top-[69%]  flex justify-center items-center text-6xl md:text-5xl font-bold text-white rounded-lg bg-opacity-50 bg-black"
+                    <h2 className="absolute w-80 h-20 md:w-[14rem] md:20 lg:top-5 lg:left-[68%] md:top-5 md:left-[59%] top-[69%]  flex justify-center items-center text-6xl md:text-5xl font-bold text-white rounded-lg bg-opacity-50 bg-black"
                         style={{ textShadow: "2px 2px 2px var(--main_color)" }}>
                         About Us
                     </h2>

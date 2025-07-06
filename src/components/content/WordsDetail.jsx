@@ -63,7 +63,7 @@ const WordsDetail = ({ dictionary_url }) => {
     }
 
     return (
-        <div className="max-w-[1000px] mx-auto p-6 bg-white shadow-lg rounded-lg m-4">
+        <div className="max-w-[1000px] min-h-[69vh] mx-auto p-6 bg-white shadow-lg rounded-lg m-4">
             <div
                 className="flex flex-wrap justify-start gap-2 items-center border-b pb-6 mb-6 rounded-lg p-2"
                 style={{ backgroundColor: "var(--main_color)" }}
