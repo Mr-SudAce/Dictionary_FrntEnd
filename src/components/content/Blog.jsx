@@ -30,7 +30,12 @@ const Blog = ({ base_url }) => {
     return (
         <>
             <div className="relative lg:w-3/4 md:w-3/4 px-2 mx-auto">
-                <h1 className="text-3xl font-bold mb-4 text-gray-800">Blog</h1>
+                <div className="flex items-center justify-between">
+                    <h1 className="text-3xl font-bold mb-4 text-gray-800">Blog</h1>
+                    <Link to={`/allblog/`} className="text-black transition duration-300 no-underline border-2 px-2 border-black rounded hover:text-white font-medium">
+                        See More Blogs
+                    </Link>
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-5 pb-8">
 
@@ -74,9 +79,7 @@ const Blog = ({ base_url }) => {
                             ))}
 
 
-                            <Link to={`/allblog/`} className="text-black transition duration-300 no-underline">
-                                See More Blogs
-                            </Link>
+
                         </>
                     ) : (
                         <p className="absolute flex justify-center items-center w-full h-[455px] text-2xl text-gray-400">
