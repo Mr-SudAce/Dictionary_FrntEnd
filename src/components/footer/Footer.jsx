@@ -25,12 +25,12 @@ const Footer = ({ base_url }) => {
   return (
     <>
       <footer
-        className="w-full border-t font-sans tracking-wide bg-var(--main_color) p-0.5"
+        className="w-full px-4 border-t font-sans tracking-wide bg-var(--main_color) p-0.5"
         style={{
           backgroundColor: "var(--main_color)",
         }}
       >
-        <div className="grid sm:grid-cols-1 lg:grid-cols-4 gap-8  justify-center text-center sm:text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 w-7xl mx-auto justify-center text-center sm:text-left">
           {footer.map((footerItem, index) => (
             <div key={index} className="lst">
               <h4
@@ -66,7 +66,7 @@ const Footer = ({ base_url }) => {
             color: "var(--main_color)",
           }}
         >
-          <span className="text-2xl text-center"> &copy;</span> {year} |
+          <span className="text-2xl text-center"> &copy;</span> 2024 - {year} |
           MeaningBy. All rights reserved.
         </p>
       </div>

@@ -1,33 +1,51 @@
 import foto from "../../assets/pic.jpg";
 
 const AboutUs = () => {
-
     return (
         <>
             {/* About Us Section */}
-            <section id="about" className="container-fluid bg-gray-100 py-12 flex flex-col md:flex-row items-center justify-around space-y-6 md:space-y-0">
-                <div className="relative w-full md:w-2/4 flex items-center justify-center p-2">
+            <section
+                id="about"
+                className="w-full py-16 px-4 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16"
+                style={{ backgroundColor: "var(--main_bg)" }}
+            >
+                {/* Image Section */}
+                <div className="relative w-full md:w-1/2 flex items-center justify-center">
                     <img
                         src={foto}
                         alt="About Us"
-                        className="max-w-full w-[80%] object-cover rounded-lg shadow-lg relative"
+                        className="w-[90%] md:w-full object-cover rounded-xl shadow-xl border-4 border-[var(--main_color)] transition-transform duration-500 hover:scale-105"
                     />
-                    <h2 className="absolute w-80 h-20 md:w-[14rem] md:20 lg:top-5 lg:left-[68%] md:top-5 md:left-[59%] top-[69%]  flex justify-center items-center text-6xl md:text-5xl font-bold text-white rounded-lg bg-opacity-50 bg-black"
-                        style={{ textShadow: "2px 2px 2px var(--main_color)" }}>
+                    <h2
+                        className="absolute text-4xl md:text-5xl lg:text-6xl font-bold text-white px-4 py-2 rounded-lg"
+                        style={{
+                            top: "65%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            backgroundColor: "rgba(79,70,229,0.7)", // semi-transparent indigo
+                            textShadow: "2px 2px 4px var(--hover_color)",
+                        }}
+                    >
                         About Us
                     </h2>
                 </div>
 
-                <div className="w-full md:w-2/4 px-6 text-gray-800 space-y-4">
-                    <h3 className="text-2xl md:text-3xl font-semibold text-center md:text-left">Welcome to MeaningBy</h3>
+                {/* Text Section */}
+                <div className="w-full md:w-1/2 flex flex-col gap-6 text-[var(--secondary_text)]">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-center md:text-left text-[var(--main_color)]">
+                        Welcome to MeaningBy
+                    </h3>
+
                     <p className="text-justify leading-relaxed">
-                        <span className="font-bold">MeaningBy</span> is a user-friendly online dictionary that helps you quickly find the meanings of words, phrases, and terms. Whether you&apos;re a student, writer, or just someone curious about language, this platform offers clear and easy-to-understand definitions to enhance your vocabulary and comprehension. The site is designed to make learning convenient.
+                        <span className="font-bold text-[var(--main_color)]">MeaningBy</span> is a user-friendly online dictionary that helps you quickly find the meanings of words, phrases, and terms. Whether you&apos;re a student, writer, or just someone curious about language, this platform offers clear and easy-to-understand definitions to enhance your vocabulary and comprehension. The site is designed to make learning convenient.
                     </p>
+
                     <p className="text-justify leading-relaxed">
-                        You can search for any word, and MeaningBy will provide its definition, usage examples, and sometimes synonyms or related terms. This helps you not only understand the word but also see how it&apos;s used in real-life situations. MeaningBy stands out for its simplicity and accessibility. The clean interface ensures you can focus on what matters most: learning new words and their meanings.
+                        You can search for any word, and <span className="font-semibold text-[var(--main_color)]">MeaningBy</span> will provide its definition, usage examples, and sometimes synonyms or related terms. This helps you not only understand the word but also see how it&apos;s used in real-life situations. MeaningBy stands out for its simplicity and accessibility. The clean interface ensures you can focus on what matters most: learning new words and their meanings.
                     </p>
+
                     <p className="text-justify leading-relaxed">
-                        In addition to definitions, MeaningBy may include pronunciation guides or links to similar words, making it a versatile tool for expanding your knowledge. Whether you&apos;re preparing for an exam, writing a report, or just exploring language for fun, MeaningBy is a handy resource to have at your fingertips. Best of all, it&apos;s available online anytime, making it perfect for quick lookups on the go.
+                        In addition to definitions, <span className="font-semibold text-[var(--main_color)]">MeaningBy</span> may include pronunciation guides or links to similar words, making it a versatile tool for expanding your knowledge. Whether you&apos;re preparing for an exam, writing a report, or just exploring language for fun, MeaningBy is a handy resource to have at your fingertips. Best of all, it&apos;s available online anytime, making it perfect for quick lookups on the go.
                     </p>
                 </div>
             </section>
