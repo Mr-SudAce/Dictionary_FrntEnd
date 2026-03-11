@@ -5,21 +5,16 @@ import { Link } from "react-router-dom";
 
 const menu = [
     { label: "Home", path: "/" },
-    // { label: "Words", path: "/word" },
     { label: "About", path: "/about" },
-    // { label: "Contact", path: "/contact" },
 ];
 
 
 const Navbar = ({ base_url }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [header, setHeader] = useState([])
-    // const [menu, setMenu] = useState([])
 
     const path = "/api/all/header/"
-    // const path2 = "/api/all/page/"
     const API_URL = `${base_url}${path}`
-    // const API_URL2 = `${base_url}${path2}`
 
     // logo/ header
     useEffect(() => {
@@ -27,29 +22,12 @@ const Navbar = ({ base_url }) => {
             try {
                 const res1 = await axios.get(API_URL);
                 setHeader(res1.data);
-                console.log(res1.data);
             } catch (err) {
                 console.log("Error Fetching Header API Data", err);
             }
         };
         fetchData();
     }, [API_URL]);
-
-
-
-    // Menu
-    // useEffect(() => {
-    //     const fetchData1 = async () => {
-    //         try {
-    //             const res2 = await axios.get(API_URL2);
-    //             setMenu(res2.data);
-    //             console.log(res2.data);
-    //         } catch (err) {
-    //             console.log("Error Fetching Menu API Data", err);
-    //         }
-    //     };
-    //     fetchData1();
-    // }, [API_URL2]);
 
 
     const toggleMenu = () => {

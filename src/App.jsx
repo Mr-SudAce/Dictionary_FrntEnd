@@ -14,7 +14,7 @@ import "./main.css";
 
 function App() {
 
-  const base_url = "http://127.0.0.1:8000"
+  const base_url = "https://meaningby.pythonanywhere.com/"
   const dictionary_url = "https://api.dictionaryapi.dev/api/v2/entries/en"
 
 
