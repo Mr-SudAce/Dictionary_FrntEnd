@@ -36,7 +36,7 @@ const Footer = ({ base_url }) => {
               <h4
                 className="font-semibold text-xl m-0 uppercase items-center flex justify-center py-3"
                 style={{
-                  color: "var(--text_color)",
+                  color: "var(--main_bg)",
                 }}
               >
                 {" "}
@@ -46,7 +46,7 @@ const Footer = ({ base_url }) => {
               <p
                 className="m-0"
                 style={{
-                  color: "var(--text_color)",
+                  color: "var(--main_bg)",
                 }}
                 dangerouslySetInnerHTML={{ __html: footerItem.description }}
               ></p>

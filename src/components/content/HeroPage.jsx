@@ -11,7 +11,7 @@ const HeroPage = ({ base_url, dictionary_url }) => {
     <>
       {/* Hero Section */}
       <div
-        className="relative w-full lg:h-[45rem] md:h-[26rem] h-[25rem] shadow-md bg-primary"
+        className="relative w-full lg:h-[45rem] md:h-[26rem] h-[25rem] shadow-md bg-[--main_color]"
         style={{
           backgroundImage: `url(${foto})`,
           backgroundSize: "cover",

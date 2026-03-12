@@ -14,16 +14,15 @@ const AboutUs = () => {
                     <img
                         src={foto}
                         alt="About Us"
-                        className="w-[90%] md:w-full object-cover rounded-xl shadow-xl border-4 border-[var(--main_color)] transition-transform duration-500 hover:scale-105"
+                        className="w-[90%] md:w-full object-cover rounded-xl shadow-xl border-4 border-[var(--main_color)] transition-transform duration-500"
                     />
                     <h2
                         className="absolute text-4xl md:text-5xl lg:text-6xl font-bold text-white px-4 py-2 rounded-lg"
                         style={{
                             top: "65%",
                             left: "50%",
-                            transform: "translate(-50%, -50%)",
-                            backgroundColor: "rgba(79,70,229,0.7)", // semi-transparent indigo
-                            textShadow: "2px 2px 4px var(--hover_color)",
+                            transform: "translate(10%, 100%)",
+                            backgroundColor: "var(--main_color)",
                         }}
                     >
                         About Us
