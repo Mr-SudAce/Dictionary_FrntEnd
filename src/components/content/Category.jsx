@@ -31,38 +31,53 @@ const Category = ({ base_url }) => {
   }, {});
 
   return (
-    <div className="mx-auto border-t-2 border-gray-300">
+    <div className="mx-auto py-8">
       {Object.entries(groupedPosts).map(([catId, categoryData]) => (
-        <div key={catId} className="mb-12 px-4 lg:px-8">
-          <h2 className="text-3xl font-semibold mb-6">{categoryData.title}</h2>
+        <div key={catId} className="mb-12">
+          {/* Category Title */}
+          <h2
+            className="text-3xl font-semibold mb-6"
+            style={{ color: "var(--main_color)" }}
+          >
+            {categoryData.title}
+          </h2>
 
+          {/* Posts Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categoryData.posts.map((post) => (
               <div
                 key={post.id}
-                className="bg-[var(--card_bg)] border-2 border-[var(--main_color)] rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1 flex flex-col overflow-hidden"
+                className="bg-[var(--card_bg)] border rounded-xl flex flex-col overflow-hidden"
+                style={{ borderColor: "var(--border_color)" }}
               >
                 {/* Image */}
                 <div className="w-full h-48 sm:h-56 overflow-hidden">
                   <img
                     src={post.image || "https://via.placeholder.com/400x250?text=No+Image"}
                     alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
                 {/* Content */}
                 <div className="p-4 flex flex-col flex-grow">
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 text-[var(--text_color)] line-clamp-2">
+                  <h3
+                    className="text-lg sm:text-xl font-bold mb-2 line-clamp-2"
+                    style={{ color: "var(--text_color)" }}
+                  >
                     {post.title}
                   </h3>
+
                   <p
-                    className="text-[var(--secondary_text)] text-sm sm:text-base mb-4 line-clamp-3 text-justify"
+                    className="text-sm sm:text-base mb-4 line-clamp-3 text-justify"
+                    style={{ color: "var(--secondary_text)" }}
                     dangerouslySetInnerHTML={{ __html: post.full_desc }}
                   ></p>
+
                   <Link
                     to={`post/${post.id}`}
-                    className="mt-auto text-[var(--main_color)] font-semibold hover:text-[var(--hover_color)] transition-colors duration-300"
+                    className="mt-auto font-semibold"
+                    style={{ color: "var(--main_color)" }}
                   >
                     Read more &rarr;
                   </Link>

@@ -21,7 +21,7 @@ const AllBlogs = ({ base_url }) => {
   }, [API_URL]);
 
   return (
-    <div className="px-4 md:px-8 lg:px-12 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="px-4 md:px-8 lg:px-12 py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
       {allblogs.map((blog, index) => {
         const date = new Date(blog?.created_at);
         const formattedDate = `${date.getDate()} ${date.toLocaleString("default", { month: "short" })}, ${date.getFullYear()}`;
@@ -29,19 +29,21 @@ const AllBlogs = ({ base_url }) => {
         return (
           <div
             key={index}
-            className="bg-[var(--card_bg)] border-2 border-[var(--main_color)] rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1 flex flex-col overflow-hidden"
+            className="bg-[var(--card_bg)] border rounded-xl flex flex-col overflow-hidden"
+            style={{ borderColor: "var(--border_color)" }}
           >
             {/* Blog Image */}
             <div className="w-full h-48 sm:h-56 overflow-hidden">
               <img
                 src={blog.blog_image || "https://via.placeholder.com/400x250?text=No+Image"}
                 alt={blog.blog_title}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                className="w-full h-full object-cover"
               />
             </div>
 
             {/* Content */}
             <div className="p-4 flex flex-col flex-grow">
+              
               {/* Category & Date */}
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[var(--main_color)] font-semibold text-sm sm:text-base">
@@ -68,7 +70,7 @@ const AllBlogs = ({ base_url }) => {
               {/* Learn More Link */}
               <Link
                 to={`/blog/${blog.id}`}
-                className="mt-auto inline-block text-[var(--main_color)] font-semibold hover:text-[var(--hover_color)] transition-colors duration-300"
+                className="mt-auto inline-block text-[var(--main_color)] font-semibold"
               >
                 Learn More &rarr;
               </Link>

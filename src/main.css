@@ -1,33 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
 * {
-    font-family: "Maven Pro";
-    font-weight: 400 !important;
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 400;
     padding: 0;
     margin: 0;
     text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Maven Pro", sans-serif;
+    line-height: 1.6;
+    color: var(--text_color);
+    background-color: var(--main_bg);
 }
 
 .container {
     max-width: 100%;
-    max-height: auto;
+    margin: 0 auto;
 }
+
 :root {
-    --main_bg: #F8FAFC;
-    --main_color: #232226;
-    --card_bg: #202023;
-    --hover_color: #F59E0B;
-    --text_color: #212121;
+    --main_bg: #FFFFFF;
+    --main_color: #1E293B;
+    --card_bg: #F8FAFC;
+    --hover_color: #3B82F6;
+    --text_color: #1E293B;
     --secondary_text: #64748B;
+    --accent_color: #06B6D4;
+    --border_color: #E2E8F0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow_hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --gradient_primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient_secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient_accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--card_bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent_color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover_color);
+}
+
+/* Utility classes */
+.line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+    background: var(--gradient_primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.btn-primary {
+    background: var(--gradient_primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow_hover);
+}
+
+.btn-secondary {
+    background: var(--card_bg);
+    color: var(--text_color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border_color);
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    border-color: var(--hover_color);
+    color: var(--hover_color);
+    transform: translateY(-2px);
+}
+
+.card {
+    background: var(--card_bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border_color);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow_hover);
+}
+
 footer .lstul {
     padding: 0;
     margin: 0;

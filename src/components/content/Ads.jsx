@@ -2,7 +2,7 @@ import ads from "../../assets/gif.webp";
 
 const Ads = () => {
     return (
-        <div className="flex justify-center items-center max-w-6xl mx-auto py-8 md:px-2">
+        <div className="flex justify-center items-center max-w-7xl mx-auto py-8 md:px-2">
             <div 
                 className="w-full md:w-4xl lg:w-4xl bg-white rounded-xl shadow-xl overflow-hidden border-2 border-[var(--main_color)] transition-transform duration-500 "
                 style={{ backgroundColor: "var(--card_bg)" }}

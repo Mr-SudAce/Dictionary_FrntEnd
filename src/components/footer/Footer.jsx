@@ -25,29 +25,26 @@ const Footer = ({ base_url }) => {
   return (
     <>
       <footer
-        className="w-full px-4 border-t font-sans tracking-wide bg-var(--main_color) p-0.5"
+        className=" px-4 mx-auto border-t font-sans tracking-wide bg-[--main_color] p-0.5"
         style={{
-          backgroundColor: "var(--main_color)",
+          backgroundColor: "var(--main_bg)",
         }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 w-7xl mx-auto justify-center text-center sm:text-left">
+        <div className="max-w-7xl grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 w-7xl mx-auto justify-center text-center">
           {footer.map((footerItem, index) => (
             <div key={index} className="lst">
               <h4
                 className="font-semibold text-xl m-0 uppercase items-center flex justify-center py-3"
                 style={{
-                  color: "var(--main_bg)",
+                  color: "var(--main_color)",
                 }}
               >
                 {" "}
                 {footerItem.heading}{" "}
               </h4>{" "}
-              <hr className="border-[white] m-0 p-0" />
+              <hr className="border-[--main_bg] m-0 p-0" />
               <p
                 className="m-0"
-                style={{
-                  color: "var(--main_bg)",
-                }}
                 dangerouslySetInnerHTML={{ __html: footerItem.description }}
               ></p>
             </div>

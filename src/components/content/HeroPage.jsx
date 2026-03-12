@@ -43,10 +43,11 @@ const HeroPage = ({ base_url, dictionary_url }) => {
       </div>
 
       {/* Blog & WordOfTheDay Section */}
-      <div className="md:flex-col flex-col flex mx-auto max-w-7xl">
+       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-4 mx-auto max-w-7xl">
         <Blog base_url={base_url} />
         <WordOfTheDay />
       </div>
+
 
       {/* Another Ads Section */}
       <div className="my-6 px-4 md:px-8">
