@@ -59,9 +59,6 @@ The application connects to the backend API. Ensure your API base URL is configu
 
 This frontend interacts with the following Backend resources:
 
-*   **Words**:
-    *   List: `/api/all/word/`
-    *   Detail: `/api/word/<id>/`
 *   **Content**:
     *   Blogs: `/api/all/blog/`
     *   Posts: `/api/all/post/`
