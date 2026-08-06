@@ -30,7 +30,7 @@ const Footer = ({ base_url }) => {
           backgroundColor: "var(--main_bg)",
         }}
       >
-        <div className="max-w-7xl grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 w-7xl mx-auto justify-center text-center">
+        <div className="container grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-8 w-7xl mx-auto justify-center text-center">
           {footer.map((footerItem, index) => (
             <div key={index} className="lst">
               <h4
@@ -44,7 +44,7 @@ const Footer = ({ base_url }) => {
               </h4>{" "}
               <hr className="border-[--main_bg] m-0 p-0" />
               <p
-                className="m-0"
+                className="m-0 text-justify leading-relaxed "
                 dangerouslySetInnerHTML={{ __html: footerItem.description }}
               ></p>
             </div>

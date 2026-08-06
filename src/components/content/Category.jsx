@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Category = ({ base_url }) => {
   const [posts, setPosts] = useState([]);
-  const API_URL = `${base_url}/api/all/post/`;
-
+  const path = '/api/all/post/';
+  const API_URL = `${base_url}${path}`;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -14,7 +14,7 @@ const Category = ({ base_url }) => {
         setPosts(data);
       } catch (error) {
         console.error("Error fetching category:", error);
-        alert("Unable to fetch posts. Please try again later.");
+        alert("Unable to fetch posts. Please try again later. again and again");
       }
     };
     fetchData();

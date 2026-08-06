@@ -24,12 +24,12 @@ function App() {
           backgroundColor: "var(--main_bg)",
         }}
       >
-        <Navbar base_url={base_url} />
+        <Navbar base_url={base_url || 'http://127.0.0.1:8000/'} />
         <Routes>
           <Route
             path="/"
             element={
-              <HeroPage base_url={base_url} dictionary_url={dictionary_url} />
+              <HeroPage base_url={base_url || 'http://127.0.0.1:8000/'} dictionary_url={dictionary_url} />
             }
           />
           <Route
@@ -38,16 +38,14 @@ function App() {
           />
           <Route
             path="/post/:id/"
-            element={<Cate_Details base_url={base_url} />}
-          />
+            element={<Cate_Details base_url={base_url || 'http://127.0.0.1:8000/'} />} />
           <Route
             path="/blog/:id/"
-            element={<Blog_Details base_url={base_url} />}
-          />
-          <Route path="/allblog" element={<AllBlogs base_url={base_url} />} />
+            element={<Blog_Details base_url={base_url || 'http://127.0.0.1:8000/'} />} />
+          <Route path="/allblog" element={<AllBlogs base_url={base_url || 'http://127.0.0.1:8000/'} />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>
-        <Footer base_url={base_url} />
+        <Footer base_url={base_url || 'http://127.0.0.1:8000/'} />
       </div>
     </BrowserRouter>
   );
