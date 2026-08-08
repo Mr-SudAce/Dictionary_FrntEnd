@@ -109,8 +109,8 @@ const Navbar = ({ base_url }) => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden border-t border-gray-200/10 ${
-          isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden border-t border-gray-200/10 
+          ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         }`}
         style={{
           backgroundColor: "var(--main_bg)",
@@ -125,7 +125,7 @@ const Navbar = ({ base_url }) => {
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2.5 rounded-md text-decoration-none text-dark font-medium transition-colors 
-                  ${ isActive
+                  ${isActive
                       ? "bg-black/5 font-semibold opacity-100"
                       : "opacity-75 hover:opacity-100 hover:bg-black/5"
                   }`}
